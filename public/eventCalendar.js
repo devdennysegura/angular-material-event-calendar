@@ -1,4 +1,4 @@
-// require('sugar/locales/es');
+(function(){"use strict";// require('sugar/locales/es');
 /**
  * @ngdoc module
  * @name material.components.eventCalendar
@@ -45,3 +45,4 @@ function rAFDecorator($delegate) {
   };
   return $delegate;
 }
+}());

@@ -1,4 +1,4 @@
-angular
+(function(){"use strict";angular
   .module('material.components.eventCalendar')
   .directive('mdEventCalendarToday', mdEventCalendarTodayDirective);
 
@@ -17,3 +17,4 @@ function mdEventCalendarTodayDirective() {
   };
   return directive;
 }
+}());

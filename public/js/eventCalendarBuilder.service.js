@@ -1,4 +1,4 @@
-angular
+(function(){"use strict";angular
   .module('material.components.eventCalendar')
   .factory('$$mdEventCalendarBuilder', mdEventCalendarBuilderService);
 
@@ -486,3 +486,4 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     item.$$place = undefined;
   }
 }
+}());

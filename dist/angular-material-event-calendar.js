@@ -1,4 +1,5 @@
-(function(){"use strict";/**
+(function(){"use strict";// require('sugar/locales/es');
+/**
  * @ngdoc module
  * @name material.components.eventCalendar
  *
@@ -13,6 +14,7 @@ angular
 
 /*@ngInject*/
 function addEventCalendarTheme($injector, $provide, EVENT_CALENDAR_THEME) {
+  Sugar.Date.setLocale('es');
   var $mdThemingProvider;
 
   // if using angular material, then register the event theme css
@@ -154,7 +156,7 @@ function eventCalendarDirective($injector, $parse) {
     vm.today = $$mdEventCalendarUtil.createDateAtMidnight();
     vm.date = $$mdEventCalendarUtil.createDateAtMidnight();
     vm.isToday = $$mdEventCalendarUtil.isSameDay(vm.date, new Date());
-    vm.monthDisplay = $$mdEventCalendarUtil.months[vm.date.getMonth()];
+    vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
     vm.yearDisplay = vm.date.getFullYear();
     vm.isTodayDisabled = true;
     vm.showCreateLink = $attrs.mdShowCreateLink !== undefined && $attrs.mdShowCreateLink !== 'false';
@@ -169,7 +171,7 @@ function eventCalendarDirective($injector, $parse) {
 
     function nextMonth() {
       vm.date = $$mdEventCalendarUtil.getDateInNextMonth(vm.date);
-      vm.monthDisplay = $$mdEventCalendarUtil.months[vm.date.getMonth()];
+      vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
       vm.yearDisplay = vm.date.getFullYear();
       vm.isTodayDisabled = vm.date.getMonth() === (new Date()).getMonth();
     }
@@ -177,14 +179,14 @@ function eventCalendarDirective($injector, $parse) {
 
     function previousMonth() {
       vm.date = $$mdEventCalendarUtil.getDateInPreviousMonth(vm.date);
-      vm.monthDisplay = $$mdEventCalendarUtil.months[vm.date.getMonth()];
+      vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
       vm.yearDisplay = vm.date.getFullYear();
       vm.isTodayDisabled = vm.date.getMonth() === (new Date()).getMonth();
     }
 
     function setToday() {
       vm.date = new Date();
-      vm.monthDisplay = $$mdEventCalendarUtil.months[vm.date.getMonth()];
+      vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
       vm.yearDisplay = vm.date.getFullYear();
       vm.isTodayDisabled = true;
     }
@@ -220,7 +222,7 @@ var nextId = 0;
  * @name $$mdEventCalendarBuilder
  * @module material.components.eventCalendar
  **/
- /*@ngInject*/
+/*@ngInject*/
 function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
   var service = {
     month: month,
@@ -232,7 +234,7 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
 
   function showMore(opts) {
     var date = opts.date;
-    var selected = opts.selected  || [];
+    var selected = opts.selected || [];
     var events = opts.events ? filterEventsOnDay(date, opts.events) : [];
     var labelProperty = opts.labelProperty;
     var showMoreBody = document.createDocumentFragment();
@@ -262,13 +264,13 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
       };
 
       if (isStartThisDay && isEndThisDay) {
-        eventElement = createEventElement({className: 'single', hasLabel: true}, item, eventOptions);
+        eventElement = createEventElement({ className: 'single', hasLabel: true }, item, eventOptions);
       } else if (isStartThisDay) {
-        eventElement = createEventElement({className: 'start-right', hasLabel: true}, item, eventOptions);
+        eventElement = createEventElement({ className: 'start-right', hasLabel: true }, item, eventOptions);
       } else if (isEndThisDay) {
-        eventElement = createEventElement({className: 'end-left', hasLabel: true}, item, eventOptions);
+        eventElement = createEventElement({ className: 'end-left', hasLabel: true }, item, eventOptions);
       } else {
-        eventElement = createEventElement({className: 'continue', hasLabel: true}, item, eventOptions);
+        eventElement = createEventElement({ className: 'continue', hasLabel: true }, item, eventOptions);
       }
 
       content.appendChild(eventElement);
@@ -278,8 +280,8 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     var bounds = opts.cell.getBoundingClientRect();
     var cellTop = opts.cell.offsetTop;
     var cellLeft = opts.cell.offsetLeft;
-    container.style.top = cellTop+'px';
-    container.style.left = cellLeft+'px';
+    container.style.top = cellTop + 'px';
+    container.style.left = cellLeft + 'px';
 
     return showMoreBody;
   }
@@ -288,7 +290,7 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
   function filterEventsOnDay(date, events) {
     return !events || !events.length ? [] : events.filter(function (item) {
       return $$mdEventCalendarUtil.isDateWithinRange(date, item.start, item.end || item.start);
-    }).sort(function(a, b) {
+    }).sort(function (a, b) {
       a = new Date(a.start);
       b = new Date(b.start);
       return a > b ? 1 : a < b ? -1 : 0;
@@ -320,7 +322,7 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     var numberOfDaysInMonth = $$mdEventCalendarUtil.getNumberOfDaysInMonth(date);
     var events = filterCurrentCalendar(date, options.events);
     events.forEach(cleanEvent);
-    var selected = options.selected  || [];
+    var selected = options.selected || [];
     var monthElement = createMonthElement();
     var row = createRowElement();
     monthElement.appendChild(row);
@@ -488,7 +490,7 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
   function createShowMore(num, date) {
     var showMoreElement = document.createElement('div');
     showMoreElement.classList.add('md-event-calendar-cell-event-show-more-link');
-    showMoreElement.textContent = num+' more';
+    showMoreElement.textContent = num + ' más';
     showMoreElement.setAttribute('md-show-more', date.toISOString());
     return showMoreElement;
   }
@@ -505,7 +507,7 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     var eventElement = document.createElement('div');
     eventElement.setAttribute('md-event-id', hash);
     eventElement.classList.add('md-event-calendar-cell-event');
-    eventElement.classList.add('md-'+type.className);
+    eventElement.classList.add('md-' + type.className);
     if (eventItem.customClass) { eventElement.classList.add(eventItem.customClass); }
 
     if (type.hasLabel === true) {
@@ -555,37 +557,37 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
       className = 'single';
       hasLabel = true;
 
-    // starts today on last day of week
+      // starts today on last day of week
     } else if (isStartThisDay && options.dayOfWeek === 6) {
       className = 'start-right';
       hasLabel = true;
 
-    // starts today
+      // starts today
     } else if (isStartThisDay) {
       className = 'start';
       hasLabel = true;
 
-    // ends on sunday
+      // ends on sunday
     } else if (isEndThisDay && options.dayOfWeek === 0) {
       className = 'end-left';
       hasLabel = true;
 
-    // last day of event
+      // last day of event
     } else if (isEndThisDay) {
       className = 'end';
       hasLabel = options.isFirstDay; // add label if event is continuing from last month
 
-    // continuation on sunday
+      // continuation on sunday
     } else if (options.dayOfWeek === 0) {
       className = 'continue-left';
       hasLabel = true;
 
-    // continue on sat
+      // continue on sat
     } else if (options.dayOfWeek === 6) {
       className = 'continue-right';
       hasLabel = false;
 
-    // continuation
+      // continuation
     } else {
       className = 'continue';
       hasLabel = false;
@@ -620,12 +622,12 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     });
 
     // fill in places that have not been set
-    sorted.forEach(function(item) {
+    sorted.forEach(function (item) {
       if (item.$$place === undefined) { item.$$place = getPlace(); }
     });
 
     // sort on places
-    return sorted.sort(function(a, b) {
+    return sorted.sort(function (a, b) {
       if (a.$$place > b.$$place) { return 1; }
       if (a.$$place < b.$$place) { return -1; }
       return 0;
@@ -651,13 +653,15 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     monthBody.appendChild(headerRow);
 
     // add header day labels
-    $$mdEventCalendarUtil.days.forEach(function (name) {
+    var now = new Date();
+    [0, 1, 2, 3, 4, 5, 6].forEach(function (value) {
+      Sugar.Date.setWeekday(now, value);
+      var name = Sugar.Date.format(now, '%a', 'es');
       var dayHeader = document.createElement('div');
       dayHeader.classList.add('md-event-calendar-month-cell-header');
-      dayHeader.textContent = name.slice(0,3).toLowerCase();
+      dayHeader.textContent = Sugar.String.capitalize(name);
       headerRow.appendChild(dayHeader);
     });
-
     return monthBody;
   }
 
@@ -681,7 +685,7 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
       if (!$$mdEventCalendarUtil.isValidDate(item.end)) { return false; }
       if ($$mdEventCalendarUtil.isDateWithinRange(item.end, start, end)) { return true; }
       return false;
-    }).sort(function(a, b) {
+    }).sort(function (a, b) {
       a = new Date(a.start);
       b = new Date(b.start);
       return a > b ? 1 : a < b ? -1 : 0;
@@ -1033,7 +1037,7 @@ function mdEventCalendarTodayDirective() {
   var directive = {
     restrict: 'E',
     require: '^mdEventCalendar',
-    template: '<md-button class="md-button" ng-click="mdEventCalendar.setToday()" aria-label="today" ng-disabled="mdEventCalendar.isTodayDisabled">Today</md-button>'
+    template: '<md-button class="md-button" ng-click="mdEventCalendar.setToday()" aria-label="today" ng-disabled="mdEventCalendar.isTodayDisabled">Hoy</md-button>'
   };
   return directive;
 }

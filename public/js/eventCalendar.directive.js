@@ -1,4 +1,4 @@
-angular
+(function(){"use strict";angular
   .module('material.components.eventCalendar')
   .directive('mdEventCalendar', eventCalendarDirective);
 
@@ -150,3 +150,4 @@ function eventCalendarDirective($injector, $parse) {
     }
   }
 }
+}());

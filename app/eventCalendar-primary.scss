@@ -8,6 +8,7 @@ md-event-calendar:not(._md) {
     background: $primary;
 
     md-event-calendar-next, md-event-calendar-prev {
+      display: flex;
       .md-arrow svg {
         fill: $primaryContrastFont;
       }
