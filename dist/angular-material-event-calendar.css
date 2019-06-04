@@ -1,8 +1,9 @@
 md-event-calendar:not(._md) md-event-calendar-header {
   color: #666;
-  background: #FFF;
-  border-color: #DDD; }
-  md-event-calendar:not(._md) md-event-calendar-header md-event-calendar-next .md-arrow svg, md-event-calendar:not(._md) md-event-calendar-header md-event-calendar-prev .md-arrow svg {
+  background: #fff;
+  border-color: #ddd; }
+  md-event-calendar:not(._md) md-event-calendar-header md-event-calendar-next .md-arrow svg,
+  md-event-calendar:not(._md) md-event-calendar-header md-event-calendar-prev .md-arrow svg {
     fill: #666; }
 
 md-event-calendar:not(._md) .md-button:not([disabled]) {
@@ -11,20 +12,20 @@ md-event-calendar:not(._md) .md-button:not([disabled]) {
     background: rgba(158, 158, 158, 0.2); }
 
 md-event-calendar:not(._md) .md-button[disabled] {
-  color: #CCC; }
+  color: #ccc; }
 
 md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row-header {
   color: #999;
-  background: #FFF;
-  border-color: #DDD; }
+  background: #fff;
+  border-color: #ddd; }
 
 md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row {
-  background: #FFF;
-  border-color: #DDD; }
+  background: #fff;
+  border-color: #ddd; }
   md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell-divider {
-    border-color: #DDD; }
+    border-color: #ddd; }
   md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell {
-    border-color: #DDD; }
+    border-color: #ddd; }
     md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell .md-event-calendar-month-cell-content .md-event-calendar-create-link {
       color: #4189b8; }
     md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell .md-event-calendar-month-cell-content .md-event-calendar-cell-data-label {
@@ -32,26 +33,26 @@ md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row
     md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell .md-event-calendar-month-cell-content .md-event-calendar-cell-event-show-more-link {
       color: #4189b8; }
     md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell.different-month {
-      background: #F5F5F5; }
+      background: #f5f5f5; }
     md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell.today {
-      box-shadow: inset 0px 0px 0px 1px #AAA; }
+      box-shadow: inset 0px 0px 0px 1px #aaa; }
       md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell.today .md-event-calendar-month-cell-content .md-event-calendar-cell-data-label {
         color: #666; }
       md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell.today .md-event-calendar-month-cell-divider {
-        border-color: #AAA; }
+        border-color: #aaa; }
     md-event-calendar:not(._md) md-event-calendar-month .md-event-calendar-month-row .md-event-calendar-month-cell:last-child {
-      border-color: #DDD; }
+      border-color: #ddd; }
 
 md-event-calendar:not(._md) .md-event-calendar-cell-event {
-  background: #DDD;
+  background: #ddd;
   color: #666; }
   md-event-calendar:not(._md) .md-event-calendar-cell-event.md-selected {
-    color: #EEE;
+    color: #eee;
     background: #888; }
   md-event-calendar:not(._md) .md-event-calendar-cell-event.md-continue-left:after, md-event-calendar:not(._md) .md-event-calendar-cell-event.md-end-left:after {
-    border-right-color: #DDD; }
+    border-right-color: #ddd; }
   md-event-calendar:not(._md) .md-event-calendar-cell-event.md-continue-right:after, md-event-calendar:not(._md) .md-event-calendar-cell-event.md-start-right:after {
-    border-left-color: #DDD; }
+    border-left-color: #ddd; }
   md-event-calendar:not(._md) .md-event-calendar-cell-event.md-selected.md-continue-left:after, md-event-calendar:not(._md) .md-event-calendar-cell-event.md-selected.md-end-left:after {
     border-right-color: #888; }
   md-event-calendar:not(._md) .md-event-calendar-cell-event.md-selected.md-continue-right:after, md-event-calendar:not(._md) .md-event-calendar-cell-event.md-selected.md-start-right:after {
