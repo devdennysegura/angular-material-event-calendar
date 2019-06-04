@@ -13,7 +13,6 @@ angular
 
 /*@ngInject*/
 function addEventCalendarTheme($injector, $provide, EVENT_CALENDAR_THEME) {
-  Sugar.Date.setLocale('es');
   var $mdThemingProvider;
 
   // if using angular material, then register the event theme css

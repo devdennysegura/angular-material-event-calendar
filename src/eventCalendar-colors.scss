@@ -1,14 +1,14 @@
 // Borders
-$border: #DDD;
-$todayBorder: #AAA;
+$border: #ddd;
+$todayBorder: #aaa;
 
 // Backgrounds
-$headerBackground: #FFF;
-$eventBackground: #DDD;
-$eventBackgroundSelected: #EEE;
-$rowBackground: #FFF;
-$previousMonthDayBackground: #F5F5F5;
-$buttonHover: rgba(158,158,158,0.2);
+$headerBackground: #fff;
+$eventBackground: #ddd;
+$eventBackgroundSelected: #eee;
+$rowBackground: #fff;
+$previousMonthDayBackground: #f5f5f5;
+$buttonHover: rgba(158, 158, 158, 0.2);
 
 // Fonts
 $eventFont: #666;
@@ -18,10 +18,7 @@ $monthDayHeaderFont: #999;
 $showMoreLink: #4189b8;
 $eventSelectedFont: #888;
 $button: #333;
-$buttonDisabled: #CCC;
-
-
-
+$buttonDisabled: #ccc;
 
 md-event-calendar:not(._md) {
   md-event-calendar-header {
@@ -29,7 +26,8 @@ md-event-calendar:not(._md) {
     background: $headerBackground;
     border-color: $border;
 
-    md-event-calendar-next, md-event-calendar-prev {
+    md-event-calendar-next,
+    md-event-calendar-prev {
       .md-arrow svg {
         fill: $headerFont;
       }
@@ -46,7 +44,6 @@ md-event-calendar:not(._md) {
   .md-button[disabled] {
     color: $buttonDisabled;
   }
-
 
   md-event-calendar-month {
     .md-event-calendar-month-row-header {
@@ -79,8 +76,6 @@ md-event-calendar:not(._md) {
             color: $showMoreLink;
           }
         }
-
-
 
         &.different-month {
           background: $previousMonthDayBackground;
@@ -116,27 +111,30 @@ md-event-calendar:not(._md) {
       background: $eventSelectedFont;
     }
 
-    &.md-continue-left, &.md-end-left {
+    &.md-continue-left,
+    &.md-end-left {
       &:after {
         border-right-color: $eventBackground;
       }
     }
 
-    &.md-continue-right, &.md-start-right {
+    &.md-continue-right,
+    &.md-start-right {
       &:after {
         border-left-color: $eventBackground;
       }
     }
 
-
     &.md-selected {
-      &.md-continue-left, &.md-end-left {
+      &.md-continue-left,
+      &.md-end-left {
         &:after {
           border-right-color: $eventSelectedFont;
         }
       }
 
-      &.md-continue-right, &.md-start-right {
+      &.md-continue-right,
+      &.md-start-right {
         &:after {
           border-left-color: $eventSelectedFont;
         }

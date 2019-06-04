@@ -441,13 +441,12 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
     monthBody.appendChild(headerRow);
 
     // add header day labels
-    var now = new Date();
     [0, 1, 2, 3, 4, 5, 6].forEach(function (value) {
-      Sugar.Date.setWeekday(now, value);
-      var name = Sugar.Date.format(now, '%a', 'es');
+      var name = moment().locale('es').day(value).format('ddd');
       var dayHeader = document.createElement('div');
       dayHeader.classList.add('md-event-calendar-month-cell-header');
-      dayHeader.textContent = Sugar.String.capitalize(name);
+      dayHeader.textContent = 'nam';
+      dayHeader.textContent = name.charAt(0).toUpperCase() + name.slice(1);
       headerRow.appendChild(dayHeader);
     });
     return monthBody;

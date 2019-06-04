@@ -98,7 +98,7 @@ function eventCalendarDirective($injector, $parse) {
     vm.today = $$mdEventCalendarUtil.createDateAtMidnight();
     vm.date = $$mdEventCalendarUtil.createDateAtMidnight();
     vm.isToday = $$mdEventCalendarUtil.isSameDay(vm.date, new Date());
-    vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
+    vm.monthDisplay = moment(vm.date).locale('es').format('MMMM');
     vm.yearDisplay = vm.date.getFullYear();
     vm.isTodayDisabled = true;
     vm.showCreateLink = $attrs.mdShowCreateLink !== undefined && $attrs.mdShowCreateLink !== 'false';
@@ -113,7 +113,7 @@ function eventCalendarDirective($injector, $parse) {
 
     function nextMonth() {
       vm.date = $$mdEventCalendarUtil.getDateInNextMonth(vm.date);
-      vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
+      vm.monthDisplay = moment(vm.date).locale('es').format('MMMM');
       vm.yearDisplay = vm.date.getFullYear();
       vm.isTodayDisabled = vm.date.getMonth() === (new Date()).getMonth();
     }
@@ -121,14 +121,14 @@ function eventCalendarDirective($injector, $parse) {
 
     function previousMonth() {
       vm.date = $$mdEventCalendarUtil.getDateInPreviousMonth(vm.date);
-      vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
+      vm.monthDisplay = moment(vm.date).locale('es').format('MMMM');
       vm.yearDisplay = vm.date.getFullYear();
       vm.isTodayDisabled = vm.date.getMonth() === (new Date()).getMonth();
     }
 
     function setToday() {
       vm.date = new Date();
-      vm.monthDisplay = Sugar.String.capitalize(Sugar.Date.format(vm.date, '{Month}', 'es'));
+      vm.monthDisplay = moment(vm.date).locale('es').format('MMMM');
       vm.yearDisplay = vm.date.getFullYear();
       vm.isTodayDisabled = true;
     }
