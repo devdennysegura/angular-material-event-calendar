@@ -1,4 +1,3 @@
-// require('sugar/locales/es');
 /**
  * @ngdoc module
  * @name material.components.eventCalendar
