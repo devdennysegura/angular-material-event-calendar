@@ -56,8 +56,5 @@
   "scripts": {
     "local": "gulp",
     "build": "gulp build"
-  },
-  "dependencies": {
-    "sugar": "^2.0.6"
   }
 }
