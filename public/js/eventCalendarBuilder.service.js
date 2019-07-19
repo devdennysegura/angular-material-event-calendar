@@ -253,18 +253,18 @@ function mdEventCalendarBuilderService($$mdEventCalendarUtil, $templateCache) {
       i = 0;
       // add spacer items for overflow events from last day
       while (i < placeDiff) {
-        if (place >= options.maxEvents) {
-          cellContent.appendChild(createShowMore(matchingEvents.length - pos, options.date));
-          return false;
-        }
+        // if (place >= options.maxEvents) {
+        //   cellContent.appendChild(createShowMore(matchingEvents.length - pos, options.date));
+        //   return false;
+        // }
         cellContent.appendChild(createEventSpacerElement());
         i += 1;
       }
 
-      if (place >= options.maxEvents) {
-        cellContent.appendChild(createShowMore(matchingEvents.length - pos, options.date));
-        return false;
-      }
+      // if (place >= options.maxEvents) {
+      //   cellContent.appendChild(createShowMore(matchingEvents.length - pos, options.date));
+      //   return false;
+      // }
       cellContent.appendChild(createEventElement(type, eventItem, options));
       return true;
     });
